@@ -7,11 +7,6 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Facebook SDK -->
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js">
-  </script>
 </head>
 <body>
 
@@ -42,7 +37,30 @@
 
   </div>
 
-  <!-- JavaScript -->
+  <!-- Facebook SDK (CORRECT WAY) -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1528637581521556',
+        cookie: true,
+        xfbml: false,
+        version: 'v19.0'
+      });
+
+      // Enable button AFTER SDK loads
+      document.getElementById('loginBtn').disabled = false;
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <!-- App JS -->
   <script src="script.js"></script>
 </body>
 </html>
