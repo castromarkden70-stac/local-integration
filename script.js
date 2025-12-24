@@ -1,28 +1,5 @@
-let fbReady = false;
-
-window.fbAsyncInit = function () {
-  FB.init({
-    appId: '1528637581521556',
-    cookie: true,
-    xfbml: false,
-    version: 'v19.0'
-  });
-
-  fbReady = true;
-  document.getElementById('loginBtn').disabled = false;
-
-  // Auto-check login status
-  FB.getLoginStatus(response => {
-    if (response.status === 'connected') {
-      fetchUserData();
-    }
-  });
-};
-
 // LOGIN
 document.getElementById('loginBtn').addEventListener('click', () => {
-  if (!fbReady) return;
-
   FB.login(response => {
     if (response.authResponse) {
       fetchUserData();
@@ -48,7 +25,5 @@ function fetchUserData() {
 
 // LOGOUT
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  FB.logout(() => {
-    location.reload();
-  });
+  FB.logout(() => location.reload());
 });
