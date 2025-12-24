@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Integration</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Facebook SDK -->
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js">
+  </script>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- TITLE -->
+    <h1 class="title">Local Integration</h1>
+    <p class="subtitle">Facebook Login Authentication</p>
+
+    <!-- LOGIN BUTTON -->
+    <button id="loginBtn" class="fb-btn" disabled>
+      <span class="fb-icon">f</span>
+      Login with Facebook
+    </button>
+
+    <p class="hint">You’ll be redirected to Facebook to continue</p>
+
+    <!-- PROFILE SECTION -->
+    <div id="profile" class="profile hidden">
+      <img id="profilePic" src="" alt="Profile Picture" />
+      <h2 id="name"></h2>
+      <p id="email"></p>
+
+      <button id="logoutBtn" class="logout-btn">
+        Logout
+      </button>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
